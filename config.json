@@ -1,0 +1,10 @@
+{
+  "modelPackage" : "com.spectx.apiClientExample.model",
+  "apiPackage"   : "com.spectx.apiClientExample.api",
+  "invokerPackage" : "com.spectx.apiClientExample",
+  "groupId" : "com.spectx",
+  "artifactId"  : "apiClientExample",
+  "fullJavaUtil" : true,
+  "dateLibrary" : "java8",
+  "library" :  "jersey2"
+}   
