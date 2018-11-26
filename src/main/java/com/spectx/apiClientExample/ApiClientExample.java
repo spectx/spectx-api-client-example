@@ -7,7 +7,6 @@ import jersey.repackaged.com.google.common.collect.Sets;
 import java.util.HashSet;
 import java.util.UUID;
 
-// java -DapiTests=false -jar ../swagger-codegen-cli-2.3.1.jar generate -i c:/wrk/SpectX-main/product/src/main/docs/api.v1.yaml -l java -c config.json -o .
 
 /**
  * Copyright (C) 2018 SpectX

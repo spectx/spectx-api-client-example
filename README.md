@@ -1,6 +1,13 @@
 # apiClientExample
 
-## Requirements
+The client library has been generated with:
+```shell
+java -DapiTests=false -jar ../swagger-codegen-cli-2.3.1.jar generate -i api.v1.yaml -l java -c config.json -o .
+```
+
+Example usage is demonstrated in com.spectx.apiClientExample.ApiClientExample class. 
+
+## Requirementsas
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
 
