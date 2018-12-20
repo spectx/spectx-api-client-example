@@ -9,6 +9,8 @@ import javax.ws.rs.core.GenericType;
 
 import com.spectx.apiClientExample.model.Error;
 
+import java.util.Map;
+
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-23T21:09:27.694+02:00")
 public class SyncQueryApi {
@@ -43,7 +45,7 @@ public class SyncQueryApi {
    * @param scriptBody The body of the script to execute. Specify to override content of script given by scriptPath (optional)
    * @throws ApiException if fails to make API call
    */
-  public void executeSync(String scriptPath, String optTimezone, String optTimestampFormat, String optTimestampNanoFormat, Boolean optOmitHeader, String accept, String range, String scriptBody) throws ApiException {
+  public void executeSync(String scriptPath, String optTimezone, String optTimestampFormat, String optTimestampNanoFormat, Boolean optOmitHeader, String accept, String range, String scriptBody, Map<String, String> params) throws ApiException {
     Object localVarPostBody = scriptBody;
     
     // verify the required parameter 'scriptPath' is set
@@ -64,6 +66,11 @@ public class SyncQueryApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "opt.timestampFormat", optTimestampFormat));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "opt.timestampNanoFormat", optTimestampNanoFormat));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "opt.omitHeader", optOmitHeader));
+    if (params != null) {
+      for (Map.Entry<String, String> param : params.entrySet()) {
+        localVarQueryParams.add(new Pair(param.getKey(), param.getValue()));
+      }
+    }
 
     if (accept != null)
       localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));

@@ -2,10 +2,10 @@ package com.spectx.apiClientExample;
 
 import com.spectx.apiClientExample.api.AsyncQueryApi;
 import com.spectx.apiClientExample.model.*;
+import jersey.repackaged.com.google.common.collect.ImmutableMap;
 import jersey.repackaged.com.google.common.collect.Sets;
 
-import java.util.HashSet;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
@@ -19,7 +19,8 @@ public class ApiClientExample {
     public static void main(String[] args) throws InterruptedException {
         AsyncQueryApi asyncQueryApi = getAsyncQueryApi();
         try {
-            UUID queryId = asyncQueryApi.executeAsync("/user/cpuheavy.sx", null, null).getQueryId();
+            Map<String, String> params = ImmutableMap.of("iterations", "1000", "j", "123", "s", "a b c %");
+            UUID queryId = asyncQueryApi.executeAsync("/user/cpuheavy.sx", null, null, params).getQueryId();
             System.out.println("Submitted as queryId = " + queryId);
 
             QueryStatus status;

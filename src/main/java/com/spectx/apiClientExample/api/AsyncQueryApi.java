@@ -11,6 +11,8 @@ import com.spectx.apiClientExample.model.Error;
 import com.spectx.apiClientExample.model.ExecuteAsyncResponse;
 import com.spectx.apiClientExample.model.QueryStatus;
 
+import java.util.Map;
+
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-23T21:09:27.694+02:00")
 public class AsyncQueryApi {
@@ -82,7 +84,7 @@ public class AsyncQueryApi {
    * @return ExecuteAsyncResponse
    * @throws ApiException if fails to make API call
    */
-  public ExecuteAsyncResponse executeAsync(String scriptPath, String optTimezone, String scriptBody) throws ApiException {
+  public ExecuteAsyncResponse executeAsync(String scriptPath, String optTimezone, String scriptBody, Map<String, String> params) throws ApiException {
     Object localVarPostBody = scriptBody;
     
     // verify the required parameter 'scriptPath' is set
@@ -100,8 +102,12 @@ public class AsyncQueryApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "scriptPath", scriptPath));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "opt.timezone", optTimezone));
+    if (params != null) {
+      for (Map.Entry<String, String> param : params.entrySet()) {
+        localVarQueryParams.add(new Pair(param.getKey(), param.getValue()));
+      }
+    }
 
-    
     
     final String[] localVarAccepts = {
       "application/json"
