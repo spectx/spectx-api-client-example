@@ -1,6 +1,7 @@
 package com.spectx.apiClientExample;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -15,6 +16,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
   public JSON() {
     mapper = new ObjectMapper();
     mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    mapper.configure(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS, true);
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, false);
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
