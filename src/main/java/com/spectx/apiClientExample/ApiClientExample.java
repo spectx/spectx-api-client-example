@@ -20,7 +20,7 @@ public class ApiClientExample {
         AsyncQueryApi asyncQueryApi = getAsyncQueryApi();
         try {
             Map<String, String> params = ImmutableMap.of("iterations", "1000", "j", "123", "s", "a b c %");
-            UUID queryId = asyncQueryApi.executeAsync("/user/cpuheavy.sx", null, null, params).getQueryId();
+            UUID queryId = asyncQueryApi.executeAsync("/user/api/warning.sx", null, null, params).getQueryId();
             System.out.println("Submitted as queryId = " + queryId);
 
             QueryStatus status;

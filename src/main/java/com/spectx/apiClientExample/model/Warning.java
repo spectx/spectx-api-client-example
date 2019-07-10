@@ -17,6 +17,8 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.spectx.apiClientExample.OptionalTzOffsetDateTimeDeserializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -27,6 +29,7 @@ import java.time.OffsetDateTime;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-23T21:09:27.694+02:00")
 public class Warning {
   @JsonProperty("time")
+  @JsonDeserialize(using = OptionalTzOffsetDateTimeDeserializer.class)
   private OffsetDateTime time = null;
 
   /**
