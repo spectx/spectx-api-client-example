@@ -13,7 +13,7 @@ import java.time.temporal.TemporalAccessor;
 import java.time.temporal.TemporalQueries;
 
 public class OptionalTzOffsetDateTimeDeserializer extends JsonDeserializer {
-    private static final DateTimeFormatter OPTIONAL_TZ_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.nnn[Z][VV]");
+    private static final DateTimeFormatter OPTIONAL_TZ_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[.n][Z][VV]");
 
     @Override
     public Object deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {

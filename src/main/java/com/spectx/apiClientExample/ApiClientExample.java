@@ -33,6 +33,14 @@ public class ApiClientExample {
                 }
                 status = asyncQueryApi.queryStatus(queryId);
                 System.out.println("Status state = " + status.getState() + " progress = " + status.getProgress());
+                if (!status.getWarnings().isEmpty()) {
+                    System.out.print("warnings = [");
+                    for (Warning warning : status.getWarnings()) {
+                        System.out.print(warning + ", ");
+                    }
+
+                    System.out.println("]");
+                }
                 Thread.sleep(500);
             } while (!TERMINAL_STATES.contains(status.getState()));
 

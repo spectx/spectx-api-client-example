@@ -21,6 +21,26 @@ public class WarningTimeDeserializeTest {
     }
 
     @Test
+    public void testDeserializeWithoutOffsetShortNs() throws IOException {
+        Assume.assumeTrue(ZoneId.systemDefault().toString().equals("Europe/Tallinn"));
+        String sampleData = "{\"time\":\"2019-07-10T13:54:05.1\",\"level\":\"WARN\",\"message\":\"blob not accessible: ssh://user:pass@nosuchhost/adsasasdsad: Unknown host nosuchhost: No address associated with hostname\"}";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.findAndRegisterModules();
+        Warning warning = mapper.readValue(sampleData, Warning.class);
+        Assert.assertEquals("2019-07-10T13:54:05.000000001+03:00", warning.getTime().toString());
+    }
+
+    @Test
+    public void testDeserializeWithoutOffsetWithoutNs() throws IOException {
+        Assume.assumeTrue(ZoneId.systemDefault().toString().equals("Europe/Tallinn"));
+        String sampleData = "{\"time\":\"2019-07-10T13:54:05\",\"level\":\"WARN\",\"message\":\"blob not accessible: ssh://user:pass@nosuchhost/adsasasdsad: Unknown host nosuchhost: No address associated with hostname\"}";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.findAndRegisterModules();
+        Warning warning = mapper.readValue(sampleData, Warning.class);
+        Assert.assertEquals("2019-07-10T13:54:05+03:00", warning.getTime().toString());
+    }
+
+    @Test
     public void testDeserializeWithZ() throws IOException {
         Assume.assumeTrue(ZoneId.systemDefault().toString().equals("Europe/Tallinn"));
         String sampleData = "{\"time\":\"2019-07-10T13:54:05.167Z\",\"level\":\"WARN\",\"message\":\"blob not accessible: ssh://user:pass@nosuchhost/adsasasdsad: Unknown host nosuchhost: No address associated with hostname\"}";
