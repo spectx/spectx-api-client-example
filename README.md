@@ -7,7 +7,7 @@ java -DapiTests=false -jar ../swagger-codegen-cli-2.3.1.jar generate -i api.v1.y
 
 Example usage is demonstrated in com.spectx.apiClientExample.ApiClientExample class. 
 
-## Requirementsas
+## Requirements
 
 Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
 
